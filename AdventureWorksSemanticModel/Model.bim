@@ -1,0 +1,2061 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1600,
+  "model": {
+    "culture": "en-IN",
+    "dataSources": [
+      {
+        "type": "structured",
+        "name": "SQL/localhost;AdventureWorksDW2022",
+        "connectionDetails": {
+          "protocol": "tds",
+          "address": {
+            "server": "localhost",
+            "database": "AdventureWorksDW2022"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "credential": {
+          "AuthenticationKind": "ServiceAccount",
+          "EncryptConnection": false
+        }
+      }
+    ],
+    "tables": [
+      {
+        "name": "DimCustomer",
+        "columns": [
+          {
+            "name": "CustomerKey",
+            "dataType": "int64",
+            "sourceColumn": "CustomerKey"
+          },
+          {
+            "name": "GeographyKey",
+            "dataType": "int64",
+            "sourceColumn": "GeographyKey"
+          },
+          {
+            "name": "CustomerAlternateKey",
+            "dataType": "string",
+            "sourceColumn": "CustomerAlternateKey"
+          },
+          {
+            "name": "Title",
+            "dataType": "string",
+            "sourceColumn": "Title"
+          },
+          {
+            "name": "FirstName",
+            "dataType": "string",
+            "sourceColumn": "FirstName"
+          },
+          {
+            "name": "MiddleName",
+            "dataType": "string",
+            "sourceColumn": "MiddleName"
+          },
+          {
+            "name": "LastName",
+            "dataType": "string",
+            "sourceColumn": "LastName"
+          },
+          {
+            "name": "NameStyle",
+            "dataType": "boolean",
+            "sourceColumn": "NameStyle"
+          },
+          {
+            "name": "BirthDate",
+            "dataType": "dateTime",
+            "sourceColumn": "BirthDate"
+          },
+          {
+            "name": "MaritalStatus",
+            "dataType": "string",
+            "sourceColumn": "MaritalStatus"
+          },
+          {
+            "name": "Suffix",
+            "dataType": "string",
+            "sourceColumn": "Suffix"
+          },
+          {
+            "name": "Gender",
+            "dataType": "string",
+            "sourceColumn": "Gender"
+          },
+          {
+            "name": "EmailAddress",
+            "dataType": "string",
+            "sourceColumn": "EmailAddress"
+          },
+          {
+            "name": "YearlyIncome",
+            "dataType": "decimal",
+            "sourceColumn": "YearlyIncome"
+          },
+          {
+            "name": "TotalChildren",
+            "dataType": "int64",
+            "sourceColumn": "TotalChildren"
+          },
+          {
+            "name": "NumberChildrenAtHome",
+            "dataType": "int64",
+            "sourceColumn": "NumberChildrenAtHome"
+          },
+          {
+            "name": "EnglishEducation",
+            "dataType": "string",
+            "sourceColumn": "EnglishEducation"
+          },
+          {
+            "name": "SpanishEducation",
+            "dataType": "string",
+            "sourceColumn": "SpanishEducation"
+          },
+          {
+            "name": "FrenchEducation",
+            "dataType": "string",
+            "sourceColumn": "FrenchEducation"
+          },
+          {
+            "name": "EnglishOccupation",
+            "dataType": "string",
+            "sourceColumn": "EnglishOccupation"
+          },
+          {
+            "name": "SpanishOccupation",
+            "dataType": "string",
+            "sourceColumn": "SpanishOccupation"
+          },
+          {
+            "name": "FrenchOccupation",
+            "dataType": "string",
+            "sourceColumn": "FrenchOccupation"
+          },
+          {
+            "name": "HouseOwnerFlag",
+            "dataType": "string",
+            "sourceColumn": "HouseOwnerFlag"
+          },
+          {
+            "name": "NumberCarsOwned",
+            "dataType": "int64",
+            "sourceColumn": "NumberCarsOwned"
+          },
+          {
+            "name": "AddressLine1",
+            "dataType": "string",
+            "sourceColumn": "AddressLine1"
+          },
+          {
+            "name": "AddressLine2",
+            "dataType": "string",
+            "sourceColumn": "AddressLine2"
+          },
+          {
+            "name": "Phone",
+            "dataType": "string",
+            "sourceColumn": "Phone"
+          },
+          {
+            "name": "DateFirstPurchase",
+            "dataType": "dateTime",
+            "sourceColumn": "DateFirstPurchase"
+          },
+          {
+            "name": "CommuteDistance",
+            "dataType": "string",
+            "sourceColumn": "CommuteDistance"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;AdventureWorksDW2022\",",
+                "    dbo_DimCustomer = Source{[Schema=\"dbo\",Item=\"DimCustomer\"]}[Data]",
+                "in",
+                "    dbo_DimCustomer"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimGeography",
+        "columns": [
+          {
+            "name": "GeographyKey",
+            "dataType": "int64",
+            "sourceColumn": "GeographyKey"
+          },
+          {
+            "name": "City",
+            "dataType": "string",
+            "sourceColumn": "City"
+          },
+          {
+            "name": "StateProvinceCode",
+            "dataType": "string",
+            "sourceColumn": "StateProvinceCode"
+          },
+          {
+            "name": "StateProvinceName",
+            "dataType": "string",
+            "sourceColumn": "StateProvinceName"
+          },
+          {
+            "name": "CountryRegionCode",
+            "dataType": "string",
+            "sourceColumn": "CountryRegionCode"
+          },
+          {
+            "name": "EnglishCountryRegionName",
+            "dataType": "string",
+            "sourceColumn": "EnglishCountryRegionName"
+          },
+          {
+            "name": "SpanishCountryRegionName",
+            "dataType": "string",
+            "sourceColumn": "SpanishCountryRegionName"
+          },
+          {
+            "name": "FrenchCountryRegionName",
+            "dataType": "string",
+            "sourceColumn": "FrenchCountryRegionName"
+          },
+          {
+            "name": "PostalCode",
+            "dataType": "string",
+            "sourceColumn": "PostalCode"
+          },
+          {
+            "name": "SalesTerritoryKey",
+            "dataType": "int64",
+            "sourceColumn": "SalesTerritoryKey"
+          },
+          {
+            "name": "IpAddressLocator",
+            "dataType": "string",
+            "sourceColumn": "IpAddressLocator"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;AdventureWorksDW2022\",",
+                "    dbo_DimGeography = Source{[Schema=\"dbo\",Item=\"DimGeography\"]}[Data]",
+                "in",
+                "    dbo_DimGeography"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimDate",
+        "columns": [
+          {
+            "name": "DateKey",
+            "dataType": "int64",
+            "sourceColumn": "DateKey"
+          },
+          {
+            "name": "FullDateAlternateKey",
+            "dataType": "dateTime",
+            "sourceColumn": "FullDateAlternateKey"
+          },
+          {
+            "name": "DayNumberOfWeek",
+            "dataType": "int64",
+            "sourceColumn": "DayNumberOfWeek"
+          },
+          {
+            "name": "EnglishDayNameOfWeek",
+            "dataType": "string",
+            "sourceColumn": "EnglishDayNameOfWeek"
+          },
+          {
+            "name": "SpanishDayNameOfWeek",
+            "dataType": "string",
+            "sourceColumn": "SpanishDayNameOfWeek"
+          },
+          {
+            "name": "FrenchDayNameOfWeek",
+            "dataType": "string",
+            "sourceColumn": "FrenchDayNameOfWeek"
+          },
+          {
+            "name": "DayNumberOfMonth",
+            "dataType": "int64",
+            "sourceColumn": "DayNumberOfMonth"
+          },
+          {
+            "name": "DayNumberOfYear",
+            "dataType": "int64",
+            "sourceColumn": "DayNumberOfYear"
+          },
+          {
+            "name": "WeekNumberOfYear",
+            "dataType": "int64",
+            "sourceColumn": "WeekNumberOfYear"
+          },
+          {
+            "name": "EnglishMonthName",
+            "dataType": "string",
+            "sourceColumn": "EnglishMonthName"
+          },
+          {
+            "name": "SpanishMonthName",
+            "dataType": "string",
+            "sourceColumn": "SpanishMonthName"
+          },
+          {
+            "name": "FrenchMonthName",
+            "dataType": "string",
+            "sourceColumn": "FrenchMonthName"
+          },
+          {
+            "name": "MonthNumberOfYear",
+            "dataType": "int64",
+            "sourceColumn": "MonthNumberOfYear"
+          },
+          {
+            "name": "CalendarQuarter",
+            "dataType": "int64",
+            "sourceColumn": "CalendarQuarter"
+          },
+          {
+            "name": "CalendarYear",
+            "dataType": "int64",
+            "sourceColumn": "CalendarYear"
+          },
+          {
+            "name": "CalendarSemester",
+            "dataType": "int64",
+            "sourceColumn": "CalendarSemester"
+          },
+          {
+            "name": "FiscalQuarter",
+            "dataType": "int64",
+            "sourceColumn": "FiscalQuarter"
+          },
+          {
+            "name": "FiscalYear",
+            "dataType": "int64",
+            "sourceColumn": "FiscalYear"
+          },
+          {
+            "name": "FiscalSemester",
+            "dataType": "int64",
+            "sourceColumn": "FiscalSemester"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;AdventureWorksDW2022\",",
+                "    dbo_DimDate = Source{[Schema=\"dbo\",Item=\"DimDate\"]}[Data]",
+                "in",
+                "    dbo_DimDate"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimProduct",
+        "columns": [
+          {
+            "name": "ProductKey",
+            "dataType": "int64",
+            "sourceColumn": "ProductKey"
+          },
+          {
+            "name": "ProductAlternateKey",
+            "dataType": "string",
+            "sourceColumn": "ProductAlternateKey"
+          },
+          {
+            "name": "ProductSubcategoryKey",
+            "dataType": "int64",
+            "sourceColumn": "ProductSubcategoryKey"
+          },
+          {
+            "name": "WeightUnitMeasureCode",
+            "dataType": "string",
+            "sourceColumn": "WeightUnitMeasureCode"
+          },
+          {
+            "name": "SizeUnitMeasureCode",
+            "dataType": "string",
+            "sourceColumn": "SizeUnitMeasureCode"
+          },
+          {
+            "name": "EnglishProductName",
+            "dataType": "string",
+            "sourceColumn": "EnglishProductName"
+          },
+          {
+            "name": "SpanishProductName",
+            "dataType": "string",
+            "sourceColumn": "SpanishProductName"
+          },
+          {
+            "name": "FrenchProductName",
+            "dataType": "string",
+            "sourceColumn": "FrenchProductName"
+          },
+          {
+            "name": "StandardCost",
+            "dataType": "decimal",
+            "sourceColumn": "StandardCost"
+          },
+          {
+            "name": "FinishedGoodsFlag",
+            "dataType": "boolean",
+            "sourceColumn": "FinishedGoodsFlag"
+          },
+          {
+            "name": "Color",
+            "dataType": "string",
+            "sourceColumn": "Color"
+          },
+          {
+            "name": "SafetyStockLevel",
+            "dataType": "int64",
+            "sourceColumn": "SafetyStockLevel"
+          },
+          {
+            "name": "ReorderPoint",
+            "dataType": "int64",
+            "sourceColumn": "ReorderPoint"
+          },
+          {
+            "name": "ListPrice",
+            "dataType": "decimal",
+            "sourceColumn": "ListPrice"
+          },
+          {
+            "name": "Size",
+            "dataType": "string",
+            "sourceColumn": "Size"
+          },
+          {
+            "name": "SizeRange",
+            "dataType": "string",
+            "sourceColumn": "SizeRange"
+          },
+          {
+            "name": "Weight",
+            "dataType": "double",
+            "sourceColumn": "Weight"
+          },
+          {
+            "name": "DaysToManufacture",
+            "dataType": "int64",
+            "sourceColumn": "DaysToManufacture"
+          },
+          {
+            "name": "ProductLine",
+            "dataType": "string",
+            "sourceColumn": "ProductLine"
+          },
+          {
+            "name": "DealerPrice",
+            "dataType": "decimal",
+            "sourceColumn": "DealerPrice"
+          },
+          {
+            "name": "Class",
+            "dataType": "string",
+            "sourceColumn": "Class"
+          },
+          {
+            "name": "Style",
+            "dataType": "string",
+            "sourceColumn": "Style"
+          },
+          {
+            "name": "ModelName",
+            "dataType": "string",
+            "sourceColumn": "ModelName"
+          },
+          {
+            "name": "EnglishDescription",
+            "dataType": "string",
+            "sourceColumn": "EnglishDescription"
+          },
+          {
+            "name": "FrenchDescription",
+            "dataType": "string",
+            "sourceColumn": "FrenchDescription"
+          },
+          {
+            "name": "ChineseDescription",
+            "dataType": "string",
+            "sourceColumn": "ChineseDescription"
+          },
+          {
+            "name": "ArabicDescription",
+            "dataType": "string",
+            "sourceColumn": "ArabicDescription"
+          },
+          {
+            "name": "HebrewDescription",
+            "dataType": "string",
+            "sourceColumn": "HebrewDescription"
+          },
+          {
+            "name": "ThaiDescription",
+            "dataType": "string",
+            "sourceColumn": "ThaiDescription"
+          },
+          {
+            "name": "GermanDescription",
+            "dataType": "string",
+            "sourceColumn": "GermanDescription"
+          },
+          {
+            "name": "JapaneseDescription",
+            "dataType": "string",
+            "sourceColumn": "JapaneseDescription"
+          },
+          {
+            "name": "TurkishDescription",
+            "dataType": "string",
+            "sourceColumn": "TurkishDescription"
+          },
+          {
+            "name": "StartDate",
+            "dataType": "dateTime",
+            "sourceColumn": "StartDate"
+          },
+          {
+            "name": "EndDate",
+            "dataType": "dateTime",
+            "sourceColumn": "EndDate"
+          },
+          {
+            "name": "Status",
+            "dataType": "string",
+            "sourceColumn": "Status"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;AdventureWorksDW2022\",",
+                "    dbo_DimProduct = Source{[Schema=\"dbo\",Item=\"DimProduct\"]}[Data]",
+                "in",
+                "    dbo_DimProduct"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimSalesTerritory",
+        "columns": [
+          {
+            "name": "SalesTerritoryKey",
+            "dataType": "int64",
+            "sourceColumn": "SalesTerritoryKey"
+          },
+          {
+            "name": "SalesTerritoryAlternateKey",
+            "dataType": "int64",
+            "sourceColumn": "SalesTerritoryAlternateKey"
+          },
+          {
+            "name": "SalesTerritoryRegion",
+            "dataType": "string",
+            "sourceColumn": "SalesTerritoryRegion"
+          },
+          {
+            "name": "SalesTerritoryCountry",
+            "dataType": "string",
+            "sourceColumn": "SalesTerritoryCountry"
+          },
+          {
+            "name": "SalesTerritoryGroup",
+            "dataType": "string",
+            "sourceColumn": "SalesTerritoryGroup"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;AdventureWorksDW2022\",",
+                "    dbo_DimSalesTerritory = Source{[Schema=\"dbo\",Item=\"DimSalesTerritory\"]}[Data]",
+                "in",
+                "    dbo_DimSalesTerritory"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "FactInternetSales",
+        "columns": [
+          {
+            "name": "ProductKey",
+            "dataType": "int64",
+            "sourceColumn": "ProductKey"
+          },
+          {
+            "name": "OrderDateKey",
+            "dataType": "int64",
+            "sourceColumn": "OrderDateKey"
+          },
+          {
+            "name": "DueDateKey",
+            "dataType": "int64",
+            "sourceColumn": "DueDateKey"
+          },
+          {
+            "name": "ShipDateKey",
+            "dataType": "int64",
+            "sourceColumn": "ShipDateKey"
+          },
+          {
+            "name": "CustomerKey",
+            "dataType": "int64",
+            "sourceColumn": "CustomerKey"
+          },
+          {
+            "name": "PromotionKey",
+            "dataType": "int64",
+            "sourceColumn": "PromotionKey"
+          },
+          {
+            "name": "CurrencyKey",
+            "dataType": "int64",
+            "sourceColumn": "CurrencyKey"
+          },
+          {
+            "name": "SalesTerritoryKey",
+            "dataType": "int64",
+            "sourceColumn": "SalesTerritoryKey"
+          },
+          {
+            "name": "SalesOrderNumber",
+            "dataType": "string",
+            "sourceColumn": "SalesOrderNumber"
+          },
+          {
+            "name": "SalesOrderLineNumber",
+            "dataType": "int64",
+            "sourceColumn": "SalesOrderLineNumber"
+          },
+          {
+            "name": "RevisionNumber",
+            "dataType": "int64",
+            "sourceColumn": "RevisionNumber"
+          },
+          {
+            "name": "OrderQuantity",
+            "dataType": "int64",
+            "sourceColumn": "OrderQuantity"
+          },
+          {
+            "name": "UnitPrice",
+            "dataType": "decimal",
+            "sourceColumn": "UnitPrice"
+          },
+          {
+            "name": "ExtendedAmount",
+            "dataType": "decimal",
+            "sourceColumn": "ExtendedAmount"
+          },
+          {
+            "name": "UnitPriceDiscountPct",
+            "dataType": "double",
+            "sourceColumn": "UnitPriceDiscountPct"
+          },
+          {
+            "name": "DiscountAmount",
+            "dataType": "double",
+            "sourceColumn": "DiscountAmount"
+          },
+          {
+            "name": "ProductStandardCost",
+            "dataType": "decimal",
+            "sourceColumn": "ProductStandardCost"
+          },
+          {
+            "name": "TotalProductCost",
+            "dataType": "decimal",
+            "sourceColumn": "TotalProductCost"
+          },
+          {
+            "name": "SalesAmount",
+            "dataType": "decimal",
+            "sourceColumn": "SalesAmount"
+          },
+          {
+            "name": "TaxAmt",
+            "dataType": "decimal",
+            "sourceColumn": "TaxAmt"
+          },
+          {
+            "name": "Freight",
+            "dataType": "decimal",
+            "sourceColumn": "Freight"
+          },
+          {
+            "name": "CarrierTrackingNumber",
+            "dataType": "string",
+            "sourceColumn": "CarrierTrackingNumber"
+          },
+          {
+            "name": "CustomerPONumber",
+            "dataType": "string",
+            "sourceColumn": "CustomerPONumber"
+          },
+          {
+            "name": "OrderDate",
+            "dataType": "dateTime",
+            "sourceColumn": "OrderDate"
+          },
+          {
+            "name": "DueDate",
+            "dataType": "dateTime",
+            "sourceColumn": "DueDate"
+          },
+          {
+            "name": "ShipDate",
+            "dataType": "dateTime",
+            "sourceColumn": "ShipDate"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;AdventureWorksDW2022\",",
+                "    dbo_FactInternetSales = Source{[Schema=\"dbo\",Item=\"FactInternetSales\"]}[Data]",
+                "in",
+                "    dbo_FactInternetSales"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimCurrency",
+        "columns": [
+          {
+            "name": "CurrencyKey",
+            "dataType": "int64",
+            "sourceColumn": "CurrencyKey"
+          },
+          {
+            "name": "CurrencyAlternateKey",
+            "dataType": "string",
+            "sourceColumn": "CurrencyAlternateKey"
+          },
+          {
+            "name": "CurrencyName",
+            "dataType": "string",
+            "sourceColumn": "CurrencyName"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;AdventureWorksDW2022\",",
+                "    dbo_DimCurrency = Source{[Schema=\"dbo\",Item=\"DimCurrency\"]}[Data]",
+                "in",
+                "    dbo_DimCurrency"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimPromotion",
+        "columns": [
+          {
+            "name": "PromotionKey",
+            "dataType": "int64",
+            "sourceColumn": "PromotionKey"
+          },
+          {
+            "name": "PromotionAlternateKey",
+            "dataType": "int64",
+            "sourceColumn": "PromotionAlternateKey"
+          },
+          {
+            "name": "EnglishPromotionName",
+            "dataType": "string",
+            "sourceColumn": "EnglishPromotionName"
+          },
+          {
+            "name": "SpanishPromotionName",
+            "dataType": "string",
+            "sourceColumn": "SpanishPromotionName"
+          },
+          {
+            "name": "FrenchPromotionName",
+            "dataType": "string",
+            "sourceColumn": "FrenchPromotionName"
+          },
+          {
+            "name": "DiscountPct",
+            "dataType": "double",
+            "sourceColumn": "DiscountPct"
+          },
+          {
+            "name": "EnglishPromotionType",
+            "dataType": "string",
+            "sourceColumn": "EnglishPromotionType"
+          },
+          {
+            "name": "SpanishPromotionType",
+            "dataType": "string",
+            "sourceColumn": "SpanishPromotionType"
+          },
+          {
+            "name": "FrenchPromotionType",
+            "dataType": "string",
+            "sourceColumn": "FrenchPromotionType"
+          },
+          {
+            "name": "EnglishPromotionCategory",
+            "dataType": "string",
+            "sourceColumn": "EnglishPromotionCategory"
+          },
+          {
+            "name": "SpanishPromotionCategory",
+            "dataType": "string",
+            "sourceColumn": "SpanishPromotionCategory"
+          },
+          {
+            "name": "FrenchPromotionCategory",
+            "dataType": "string",
+            "sourceColumn": "FrenchPromotionCategory"
+          },
+          {
+            "name": "StartDate",
+            "dataType": "dateTime",
+            "sourceColumn": "StartDate"
+          },
+          {
+            "name": "EndDate",
+            "dataType": "dateTime",
+            "sourceColumn": "EndDate"
+          },
+          {
+            "name": "MinQty",
+            "dataType": "int64",
+            "sourceColumn": "MinQty"
+          },
+          {
+            "name": "MaxQty",
+            "dataType": "int64",
+            "sourceColumn": "MaxQty"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;AdventureWorksDW2022\",",
+                "    dbo_DimPromotion = Source{[Schema=\"dbo\",Item=\"DimPromotion\"]}[Data]",
+                "in",
+                "    dbo_DimPromotion"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "FactInternetSalesReason",
+        "columns": [
+          {
+            "name": "SalesOrderNumber",
+            "dataType": "string",
+            "sourceColumn": "SalesOrderNumber"
+          },
+          {
+            "name": "SalesOrderLineNumber",
+            "dataType": "int64",
+            "sourceColumn": "SalesOrderLineNumber"
+          },
+          {
+            "name": "SalesReasonKey",
+            "dataType": "int64",
+            "sourceColumn": "SalesReasonKey"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;AdventureWorksDW2022\",",
+                "    dbo_FactInternetSalesReason = Source{[Schema=\"dbo\",Item=\"FactInternetSalesReason\"]}[Data]",
+                "in",
+                "    dbo_FactInternetSalesReason"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "FactSurveyResponse",
+        "columns": [
+          {
+            "name": "SurveyResponseKey",
+            "dataType": "int64",
+            "sourceColumn": "SurveyResponseKey"
+          },
+          {
+            "name": "DateKey",
+            "dataType": "int64",
+            "sourceColumn": "DateKey"
+          },
+          {
+            "name": "CustomerKey",
+            "dataType": "int64",
+            "sourceColumn": "CustomerKey"
+          },
+          {
+            "name": "ProductCategoryKey",
+            "dataType": "int64",
+            "sourceColumn": "ProductCategoryKey"
+          },
+          {
+            "name": "EnglishProductCategoryName",
+            "dataType": "string",
+            "sourceColumn": "EnglishProductCategoryName"
+          },
+          {
+            "name": "ProductSubcategoryKey",
+            "dataType": "int64",
+            "sourceColumn": "ProductSubcategoryKey"
+          },
+          {
+            "name": "EnglishProductSubcategoryName",
+            "dataType": "string",
+            "sourceColumn": "EnglishProductSubcategoryName"
+          },
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Date"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;AdventureWorksDW2022\",",
+                "    dbo_FactSurveyResponse = Source{[Schema=\"dbo\",Item=\"FactSurveyResponse\"]}[Data]",
+                "in",
+                "    dbo_FactSurveyResponse"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimReseller",
+        "columns": [
+          {
+            "name": "ResellerKey",
+            "dataType": "int64",
+            "sourceColumn": "ResellerKey"
+          },
+          {
+            "name": "GeographyKey",
+            "dataType": "int64",
+            "sourceColumn": "GeographyKey"
+          },
+          {
+            "name": "ResellerAlternateKey",
+            "dataType": "string",
+            "sourceColumn": "ResellerAlternateKey"
+          },
+          {
+            "name": "Phone",
+            "dataType": "string",
+            "sourceColumn": "Phone"
+          },
+          {
+            "name": "BusinessType",
+            "dataType": "string",
+            "sourceColumn": "BusinessType"
+          },
+          {
+            "name": "ResellerName",
+            "dataType": "string",
+            "sourceColumn": "ResellerName"
+          },
+          {
+            "name": "NumberEmployees",
+            "dataType": "int64",
+            "sourceColumn": "NumberEmployees"
+          },
+          {
+            "name": "OrderFrequency",
+            "dataType": "string",
+            "sourceColumn": "OrderFrequency"
+          },
+          {
+            "name": "OrderMonth",
+            "dataType": "int64",
+            "sourceColumn": "OrderMonth"
+          },
+          {
+            "name": "FirstOrderYear",
+            "dataType": "int64",
+            "sourceColumn": "FirstOrderYear"
+          },
+          {
+            "name": "LastOrderYear",
+            "dataType": "int64",
+            "sourceColumn": "LastOrderYear"
+          },
+          {
+            "name": "ProductLine",
+            "dataType": "string",
+            "sourceColumn": "ProductLine"
+          },
+          {
+            "name": "AddressLine1",
+            "dataType": "string",
+            "sourceColumn": "AddressLine1"
+          },
+          {
+            "name": "AddressLine2",
+            "dataType": "string",
+            "sourceColumn": "AddressLine2"
+          },
+          {
+            "name": "AnnualSales",
+            "dataType": "decimal",
+            "sourceColumn": "AnnualSales"
+          },
+          {
+            "name": "BankName",
+            "dataType": "string",
+            "sourceColumn": "BankName"
+          },
+          {
+            "name": "MinPaymentType",
+            "dataType": "int64",
+            "sourceColumn": "MinPaymentType"
+          },
+          {
+            "name": "MinPaymentAmount",
+            "dataType": "decimal",
+            "sourceColumn": "MinPaymentAmount"
+          },
+          {
+            "name": "AnnualRevenue",
+            "dataType": "decimal",
+            "sourceColumn": "AnnualRevenue"
+          },
+          {
+            "name": "YearOpened",
+            "dataType": "int64",
+            "sourceColumn": "YearOpened"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;AdventureWorksDW2022\",",
+                "    dbo_DimReseller = Source{[Schema=\"dbo\",Item=\"DimReseller\"]}[Data]",
+                "in",
+                "    dbo_DimReseller"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "FactCallCenter",
+        "columns": [
+          {
+            "name": "FactCallCenterID",
+            "dataType": "int64",
+            "sourceColumn": "FactCallCenterID"
+          },
+          {
+            "name": "DateKey",
+            "dataType": "int64",
+            "sourceColumn": "DateKey"
+          },
+          {
+            "name": "WageType",
+            "dataType": "string",
+            "sourceColumn": "WageType"
+          },
+          {
+            "name": "Shift",
+            "dataType": "string",
+            "sourceColumn": "Shift"
+          },
+          {
+            "name": "LevelOneOperators",
+            "dataType": "int64",
+            "sourceColumn": "LevelOneOperators"
+          },
+          {
+            "name": "LevelTwoOperators",
+            "dataType": "int64",
+            "sourceColumn": "LevelTwoOperators"
+          },
+          {
+            "name": "TotalOperators",
+            "dataType": "int64",
+            "sourceColumn": "TotalOperators"
+          },
+          {
+            "name": "Calls",
+            "dataType": "int64",
+            "sourceColumn": "Calls"
+          },
+          {
+            "name": "AutomaticResponses",
+            "dataType": "int64",
+            "sourceColumn": "AutomaticResponses"
+          },
+          {
+            "name": "Orders",
+            "dataType": "int64",
+            "sourceColumn": "Orders"
+          },
+          {
+            "name": "IssuesRaised",
+            "dataType": "int64",
+            "sourceColumn": "IssuesRaised"
+          },
+          {
+            "name": "AverageTimePerIssue",
+            "dataType": "int64",
+            "sourceColumn": "AverageTimePerIssue"
+          },
+          {
+            "name": "ServiceGrade",
+            "dataType": "double",
+            "sourceColumn": "ServiceGrade"
+          },
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Date"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;AdventureWorksDW2022\",",
+                "    dbo_FactCallCenter = Source{[Schema=\"dbo\",Item=\"FactCallCenter\"]}[Data]",
+                "in",
+                "    dbo_FactCallCenter"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "FactCurrencyRate",
+        "columns": [
+          {
+            "name": "CurrencyKey",
+            "dataType": "int64",
+            "sourceColumn": "CurrencyKey"
+          },
+          {
+            "name": "DateKey",
+            "dataType": "int64",
+            "sourceColumn": "DateKey"
+          },
+          {
+            "name": "AverageRate",
+            "dataType": "double",
+            "sourceColumn": "AverageRate"
+          },
+          {
+            "name": "EndOfDayRate",
+            "dataType": "double",
+            "sourceColumn": "EndOfDayRate"
+          },
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Date"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;AdventureWorksDW2022\",",
+                "    dbo_FactCurrencyRate = Source{[Schema=\"dbo\",Item=\"FactCurrencyRate\"]}[Data]",
+                "in",
+                "    dbo_FactCurrencyRate"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "FactFinance",
+        "columns": [
+          {
+            "name": "FinanceKey",
+            "dataType": "int64",
+            "sourceColumn": "FinanceKey"
+          },
+          {
+            "name": "DateKey",
+            "dataType": "int64",
+            "sourceColumn": "DateKey"
+          },
+          {
+            "name": "OrganizationKey",
+            "dataType": "int64",
+            "sourceColumn": "OrganizationKey"
+          },
+          {
+            "name": "DepartmentGroupKey",
+            "dataType": "int64",
+            "sourceColumn": "DepartmentGroupKey"
+          },
+          {
+            "name": "ScenarioKey",
+            "dataType": "int64",
+            "sourceColumn": "ScenarioKey"
+          },
+          {
+            "name": "AccountKey",
+            "dataType": "int64",
+            "sourceColumn": "AccountKey"
+          },
+          {
+            "name": "Amount",
+            "dataType": "double",
+            "sourceColumn": "Amount"
+          },
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Date"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;AdventureWorksDW2022\",",
+                "    dbo_FactFinance = Source{[Schema=\"dbo\",Item=\"FactFinance\"]}[Data]",
+                "in",
+                "    dbo_FactFinance"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "FactProductInventory",
+        "columns": [
+          {
+            "name": "ProductKey",
+            "dataType": "int64",
+            "sourceColumn": "ProductKey"
+          },
+          {
+            "name": "DateKey",
+            "dataType": "int64",
+            "sourceColumn": "DateKey"
+          },
+          {
+            "name": "MovementDate",
+            "dataType": "dateTime",
+            "sourceColumn": "MovementDate"
+          },
+          {
+            "name": "UnitCost",
+            "dataType": "decimal",
+            "sourceColumn": "UnitCost"
+          },
+          {
+            "name": "UnitsIn",
+            "dataType": "int64",
+            "sourceColumn": "UnitsIn"
+          },
+          {
+            "name": "UnitsOut",
+            "dataType": "int64",
+            "sourceColumn": "UnitsOut"
+          },
+          {
+            "name": "UnitsBalance",
+            "dataType": "int64",
+            "sourceColumn": "UnitsBalance"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;AdventureWorksDW2022\",",
+                "    dbo_FactProductInventory = Source{[Schema=\"dbo\",Item=\"FactProductInventory\"]}[Data]",
+                "in",
+                "    dbo_FactProductInventory"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "FactResellerSales",
+        "columns": [
+          {
+            "name": "ProductKey",
+            "dataType": "int64",
+            "sourceColumn": "ProductKey"
+          },
+          {
+            "name": "OrderDateKey",
+            "dataType": "int64",
+            "sourceColumn": "OrderDateKey"
+          },
+          {
+            "name": "DueDateKey",
+            "dataType": "int64",
+            "sourceColumn": "DueDateKey"
+          },
+          {
+            "name": "ShipDateKey",
+            "dataType": "int64",
+            "sourceColumn": "ShipDateKey"
+          },
+          {
+            "name": "ResellerKey",
+            "dataType": "int64",
+            "sourceColumn": "ResellerKey"
+          },
+          {
+            "name": "EmployeeKey",
+            "dataType": "int64",
+            "sourceColumn": "EmployeeKey"
+          },
+          {
+            "name": "PromotionKey",
+            "dataType": "int64",
+            "sourceColumn": "PromotionKey"
+          },
+          {
+            "name": "CurrencyKey",
+            "dataType": "int64",
+            "sourceColumn": "CurrencyKey"
+          },
+          {
+            "name": "SalesTerritoryKey",
+            "dataType": "int64",
+            "sourceColumn": "SalesTerritoryKey"
+          },
+          {
+            "name": "SalesOrderNumber",
+            "dataType": "string",
+            "sourceColumn": "SalesOrderNumber"
+          },
+          {
+            "name": "SalesOrderLineNumber",
+            "dataType": "int64",
+            "sourceColumn": "SalesOrderLineNumber"
+          },
+          {
+            "name": "RevisionNumber",
+            "dataType": "int64",
+            "sourceColumn": "RevisionNumber"
+          },
+          {
+            "name": "OrderQuantity",
+            "dataType": "int64",
+            "sourceColumn": "OrderQuantity"
+          },
+          {
+            "name": "UnitPrice",
+            "dataType": "decimal",
+            "sourceColumn": "UnitPrice"
+          },
+          {
+            "name": "ExtendedAmount",
+            "dataType": "decimal",
+            "sourceColumn": "ExtendedAmount"
+          },
+          {
+            "name": "UnitPriceDiscountPct",
+            "dataType": "double",
+            "sourceColumn": "UnitPriceDiscountPct"
+          },
+          {
+            "name": "DiscountAmount",
+            "dataType": "double",
+            "sourceColumn": "DiscountAmount"
+          },
+          {
+            "name": "ProductStandardCost",
+            "dataType": "decimal",
+            "sourceColumn": "ProductStandardCost"
+          },
+          {
+            "name": "TotalProductCost",
+            "dataType": "decimal",
+            "sourceColumn": "TotalProductCost"
+          },
+          {
+            "name": "SalesAmount",
+            "dataType": "decimal",
+            "sourceColumn": "SalesAmount"
+          },
+          {
+            "name": "TaxAmt",
+            "dataType": "decimal",
+            "sourceColumn": "TaxAmt"
+          },
+          {
+            "name": "Freight",
+            "dataType": "decimal",
+            "sourceColumn": "Freight"
+          },
+          {
+            "name": "CarrierTrackingNumber",
+            "dataType": "string",
+            "sourceColumn": "CarrierTrackingNumber"
+          },
+          {
+            "name": "CustomerPONumber",
+            "dataType": "string",
+            "sourceColumn": "CustomerPONumber"
+          },
+          {
+            "name": "OrderDate",
+            "dataType": "dateTime",
+            "sourceColumn": "OrderDate"
+          },
+          {
+            "name": "DueDate",
+            "dataType": "dateTime",
+            "sourceColumn": "DueDate"
+          },
+          {
+            "name": "ShipDate",
+            "dataType": "dateTime",
+            "sourceColumn": "ShipDate"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;AdventureWorksDW2022\",",
+                "    dbo_FactResellerSales = Source{[Schema=\"dbo\",Item=\"FactResellerSales\"]}[Data]",
+                "in",
+                "    dbo_FactResellerSales"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "FactSalesQuota",
+        "columns": [
+          {
+            "name": "SalesQuotaKey",
+            "dataType": "int64",
+            "sourceColumn": "SalesQuotaKey"
+          },
+          {
+            "name": "EmployeeKey",
+            "dataType": "int64",
+            "sourceColumn": "EmployeeKey"
+          },
+          {
+            "name": "DateKey",
+            "dataType": "int64",
+            "sourceColumn": "DateKey"
+          },
+          {
+            "name": "CalendarYear",
+            "dataType": "int64",
+            "sourceColumn": "CalendarYear"
+          },
+          {
+            "name": "CalendarQuarter",
+            "dataType": "int64",
+            "sourceColumn": "CalendarQuarter"
+          },
+          {
+            "name": "SalesAmountQuota",
+            "dataType": "decimal",
+            "sourceColumn": "SalesAmountQuota"
+          },
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Date"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;AdventureWorksDW2022\",",
+                "    dbo_FactSalesQuota = Source{[Schema=\"dbo\",Item=\"FactSalesQuota\"]}[Data]",
+                "in",
+                "    dbo_FactSalesQuota"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimEmployee",
+        "columns": [
+          {
+            "name": "EmployeeKey",
+            "dataType": "int64",
+            "sourceColumn": "EmployeeKey"
+          },
+          {
+            "name": "ParentEmployeeKey",
+            "dataType": "int64",
+            "sourceColumn": "ParentEmployeeKey"
+          },
+          {
+            "name": "EmployeeNationalIDAlternateKey",
+            "dataType": "string",
+            "sourceColumn": "EmployeeNationalIDAlternateKey"
+          },
+          {
+            "name": "ParentEmployeeNationalIDAlternateKey",
+            "dataType": "string",
+            "sourceColumn": "ParentEmployeeNationalIDAlternateKey"
+          },
+          {
+            "name": "SalesTerritoryKey",
+            "dataType": "int64",
+            "sourceColumn": "SalesTerritoryKey"
+          },
+          {
+            "name": "FirstName",
+            "dataType": "string",
+            "sourceColumn": "FirstName"
+          },
+          {
+            "name": "LastName",
+            "dataType": "string",
+            "sourceColumn": "LastName"
+          },
+          {
+            "name": "MiddleName",
+            "dataType": "string",
+            "sourceColumn": "MiddleName"
+          },
+          {
+            "name": "NameStyle",
+            "dataType": "boolean",
+            "sourceColumn": "NameStyle"
+          },
+          {
+            "name": "Title",
+            "dataType": "string",
+            "sourceColumn": "Title"
+          },
+          {
+            "name": "HireDate",
+            "dataType": "dateTime",
+            "sourceColumn": "HireDate"
+          },
+          {
+            "name": "BirthDate",
+            "dataType": "dateTime",
+            "sourceColumn": "BirthDate"
+          },
+          {
+            "name": "LoginID",
+            "dataType": "string",
+            "sourceColumn": "LoginID"
+          },
+          {
+            "name": "EmailAddress",
+            "dataType": "string",
+            "sourceColumn": "EmailAddress"
+          },
+          {
+            "name": "Phone",
+            "dataType": "string",
+            "sourceColumn": "Phone"
+          },
+          {
+            "name": "MaritalStatus",
+            "dataType": "string",
+            "sourceColumn": "MaritalStatus"
+          },
+          {
+            "name": "EmergencyContactName",
+            "dataType": "string",
+            "sourceColumn": "EmergencyContactName"
+          },
+          {
+            "name": "EmergencyContactPhone",
+            "dataType": "string",
+            "sourceColumn": "EmergencyContactPhone"
+          },
+          {
+            "name": "SalariedFlag",
+            "dataType": "boolean",
+            "sourceColumn": "SalariedFlag"
+          },
+          {
+            "name": "Gender",
+            "dataType": "string",
+            "sourceColumn": "Gender"
+          },
+          {
+            "name": "PayFrequency",
+            "dataType": "int64",
+            "sourceColumn": "PayFrequency"
+          },
+          {
+            "name": "BaseRate",
+            "dataType": "decimal",
+            "sourceColumn": "BaseRate"
+          },
+          {
+            "name": "VacationHours",
+            "dataType": "int64",
+            "sourceColumn": "VacationHours"
+          },
+          {
+            "name": "SickLeaveHours",
+            "dataType": "int64",
+            "sourceColumn": "SickLeaveHours"
+          },
+          {
+            "name": "CurrentFlag",
+            "dataType": "boolean",
+            "sourceColumn": "CurrentFlag"
+          },
+          {
+            "name": "SalesPersonFlag",
+            "dataType": "boolean",
+            "sourceColumn": "SalesPersonFlag"
+          },
+          {
+            "name": "DepartmentName",
+            "dataType": "string",
+            "sourceColumn": "DepartmentName"
+          },
+          {
+            "name": "StartDate",
+            "dataType": "dateTime",
+            "sourceColumn": "StartDate"
+          },
+          {
+            "name": "EndDate",
+            "dataType": "dateTime",
+            "sourceColumn": "EndDate"
+          },
+          {
+            "name": "Status",
+            "dataType": "string",
+            "sourceColumn": "Status"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;AdventureWorksDW2022\",",
+                "    dbo_DimEmployee = Source{[Schema=\"dbo\",Item=\"DimEmployee\"]}[Data]",
+                "in",
+                "    dbo_DimEmployee"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimProductSubcategory",
+        "columns": [
+          {
+            "name": "ProductSubcategoryKey",
+            "dataType": "int64",
+            "sourceColumn": "ProductSubcategoryKey"
+          },
+          {
+            "name": "ProductSubcategoryAlternateKey",
+            "dataType": "int64",
+            "sourceColumn": "ProductSubcategoryAlternateKey"
+          },
+          {
+            "name": "EnglishProductSubcategoryName",
+            "dataType": "string",
+            "sourceColumn": "EnglishProductSubcategoryName"
+          },
+          {
+            "name": "SpanishProductSubcategoryName",
+            "dataType": "string",
+            "sourceColumn": "SpanishProductSubcategoryName"
+          },
+          {
+            "name": "FrenchProductSubcategoryName",
+            "dataType": "string",
+            "sourceColumn": "FrenchProductSubcategoryName"
+          },
+          {
+            "name": "ProductCategoryKey",
+            "dataType": "int64",
+            "sourceColumn": "ProductCategoryKey"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;AdventureWorksDW2022\",",
+                "    dbo_DimProductSubcategory = Source{[Schema=\"dbo\",Item=\"DimProductSubcategory\"]}[Data]",
+                "in",
+                "    dbo_DimProductSubcategory"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "d790f5d5-f775-41cb-9cc1-541fd78c6819",
+        "fromTable": "DimCustomer",
+        "fromColumn": "GeographyKey",
+        "toTable": "DimGeography",
+        "toColumn": "GeographyKey"
+      },
+      {
+        "name": "26ffdc1d-5a28-43f9-8e97-8bdbbd891a14",
+        "fromTable": "FactSurveyResponse",
+        "fromColumn": "CustomerKey",
+        "toTable": "DimCustomer",
+        "toColumn": "CustomerKey"
+      },
+      {
+        "name": "e4e5bd0c-d469-49c4-b441-89ea9c67e582",
+        "fromTable": "DimGeography",
+        "fromColumn": "SalesTerritoryKey",
+        "toTable": "DimSalesTerritory",
+        "toColumn": "SalesTerritoryKey",
+        "isActive": false
+      },
+      {
+        "name": "e534227a-e52c-4271-b218-734c36c3c9eb",
+        "fromTable": "FactCurrencyRate",
+        "fromColumn": "DateKey",
+        "toTable": "DimDate",
+        "toColumn": "DateKey"
+      },
+      {
+        "name": "c0a66eb0-7d53-43dd-8957-f1200f921b10",
+        "fromTable": "FactInternetSales",
+        "fromColumn": "DueDateKey",
+        "toTable": "DimDate",
+        "toColumn": "DateKey",
+        "isActive": false
+      },
+      {
+        "name": "ec58f124-6cea-4bd8-b8e5-7bba38172fc0",
+        "fromTable": "FactInternetSales",
+        "fromColumn": "OrderDateKey",
+        "toTable": "DimDate",
+        "toColumn": "DateKey"
+      },
+      {
+        "name": "aae457da-c5a3-456d-b9fd-2c1515aa573a",
+        "fromTable": "FactInternetSales",
+        "fromColumn": "ShipDateKey",
+        "toTable": "DimDate",
+        "toColumn": "DateKey",
+        "isActive": false
+      },
+      {
+        "name": "ab514b8f-2cdf-445d-90c6-7396e133d74e",
+        "fromTable": "FactProductInventory",
+        "fromColumn": "DateKey",
+        "toTable": "DimDate",
+        "toColumn": "DateKey"
+      },
+      {
+        "name": "3678c878-df82-4502-a5b8-7a8164d1e56a",
+        "fromTable": "FactResellerSales",
+        "fromColumn": "DueDateKey",
+        "toTable": "DimDate",
+        "toColumn": "DateKey",
+        "isActive": false
+      },
+      {
+        "name": "2176f5eb-c80a-47e7-9da4-775893985d59",
+        "fromTable": "FactResellerSales",
+        "fromColumn": "OrderDateKey",
+        "toTable": "DimDate",
+        "toColumn": "DateKey"
+      },
+      {
+        "name": "9547e143-c594-4b91-9af5-f848558731e5",
+        "fromTable": "FactResellerSales",
+        "fromColumn": "ShipDateKey",
+        "toTable": "DimDate",
+        "toColumn": "DateKey",
+        "isActive": false
+      },
+      {
+        "name": "6260e238-9f7e-4521-94f0-487693041b32",
+        "fromTable": "FactSalesQuota",
+        "fromColumn": "DateKey",
+        "toTable": "DimDate",
+        "toColumn": "DateKey"
+      },
+      {
+        "name": "98757bcd-50aa-400c-8f35-dd9599320eba",
+        "fromTable": "FactInternetSales",
+        "fromColumn": "ProductKey",
+        "toTable": "DimProduct",
+        "toColumn": "ProductKey"
+      },
+      {
+        "name": "bbee9c15-490a-4ad8-87d5-76d35b8af7cc",
+        "fromTable": "FactResellerSales",
+        "fromColumn": "ProductKey",
+        "toTable": "DimProduct",
+        "toColumn": "ProductKey"
+      },
+      {
+        "name": "9de1ae2e-4a66-4d3e-a06c-d4a0b7b26e64",
+        "fromTable": "DimEmployee",
+        "fromColumn": "SalesTerritoryKey",
+        "toTable": "DimSalesTerritory",
+        "toColumn": "SalesTerritoryKey"
+      },
+      {
+        "name": "f12095a7-d992-412c-b6fe-c94552524fc3",
+        "fromTable": "FactInternetSales",
+        "fromColumn": "SalesTerritoryKey",
+        "toTable": "DimSalesTerritory",
+        "toColumn": "SalesTerritoryKey"
+      },
+      {
+        "name": "9f9005f9-b203-4a18-a537-80e3eb1d80c1",
+        "fromTable": "FactResellerSales",
+        "fromColumn": "SalesTerritoryKey",
+        "toTable": "DimSalesTerritory",
+        "toColumn": "SalesTerritoryKey",
+        "isActive": false
+      },
+      {
+        "name": "6cd9df01-6108-4768-8be5-7dee3feca5b5",
+        "fromTable": "FactInternetSales",
+        "fromColumn": "CurrencyKey",
+        "toTable": "DimCurrency",
+        "toColumn": "CurrencyKey"
+      },
+      {
+        "name": "34c9d29b-6993-4985-b168-fe94c0fd532f",
+        "fromTable": "FactInternetSales",
+        "fromColumn": "PromotionKey",
+        "toTable": "DimPromotion",
+        "toColumn": "PromotionKey"
+      },
+      {
+        "name": "f00d968e-ad00-4109-88d6-842c7bd04c78",
+        "fromTable": "FactResellerSales",
+        "fromColumn": "CurrencyKey",
+        "toTable": "DimCurrency",
+        "toColumn": "CurrencyKey"
+      },
+      {
+        "name": "a4a3d470-5af5-4ad4-b921-b6f28c97904e",
+        "fromTable": "FactResellerSales",
+        "fromColumn": "PromotionKey",
+        "toTable": "DimPromotion",
+        "toColumn": "PromotionKey"
+      },
+      {
+        "name": "47f2424d-de02-41cd-b147-485847c6d92d",
+        "fromTable": "FactResellerSales",
+        "fromColumn": "EmployeeKey",
+        "toTable": "DimEmployee",
+        "toColumn": "EmployeeKey"
+      },
+      {
+        "name": "48d4c2b7-fbd9-4107-bceb-3cd29d19abf9",
+        "fromTable": "FactInternetSales",
+        "fromColumn": "CustomerKey",
+        "toTable": "DimCustomer",
+        "toColumn": "CustomerKey"
+      },
+      {
+        "name": "24bc2081-89ac-4cd0-b750-fa0c00aed4d7",
+        "fromTable": "DimReseller",
+        "fromColumn": "GeographyKey",
+        "toTable": "DimGeography",
+        "toColumn": "GeographyKey"
+      },
+      {
+        "name": "5231ffbc-9cc2-44df-99af-d9cb841bf5ca",
+        "fromTable": "FactCallCenter",
+        "fromColumn": "DateKey",
+        "toTable": "DimDate",
+        "toColumn": "DateKey"
+      },
+      {
+        "name": "6d391b42-37a1-4774-a28c-53ac53aa6c18",
+        "fromTable": "FactFinance",
+        "fromColumn": "DateKey",
+        "toTable": "DimDate",
+        "toColumn": "DateKey"
+      },
+      {
+        "name": "4a901dae-f01b-4f5e-a42d-4a2ead446a19",
+        "fromTable": "FactSurveyResponse",
+        "fromColumn": "DateKey",
+        "toTable": "DimDate",
+        "toColumn": "DateKey"
+      },
+      {
+        "name": "076173da-224d-4a5e-aa2e-49f4c6e6eade",
+        "fromTable": "DimProduct",
+        "fromColumn": "ProductSubcategoryKey",
+        "toTable": "DimProductSubcategory",
+        "toColumn": "ProductSubcategoryKey"
+      },
+      {
+        "name": "ee05fc3a-f1b1-48d0-8aa3-d834207fbbc4",
+        "fromTable": "FactProductInventory",
+        "fromColumn": "ProductKey",
+        "toTable": "DimProduct",
+        "toColumn": "ProductKey"
+      },
+      {
+        "name": "3690b393-10f4-4eaf-ab88-06f16a26646d",
+        "fromTable": "FactCurrencyRate",
+        "fromColumn": "CurrencyKey",
+        "toTable": "DimCurrency",
+        "toColumn": "CurrencyKey"
+      },
+      {
+        "name": "3c7f52ec-ec7f-49cc-a84a-bb95b62d3e59",
+        "fromTable": "FactResellerSales",
+        "fromColumn": "ResellerKey",
+        "toTable": "DimReseller",
+        "toColumn": "ResellerKey"
+      },
+      {
+        "name": "c34631d1-20ee-4df3-8ddf-75d6e9040a24",
+        "fromTable": "FactSalesQuota",
+        "fromColumn": "EmployeeKey",
+        "toTable": "DimEmployee",
+        "toColumn": "EmployeeKey"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "700"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}
