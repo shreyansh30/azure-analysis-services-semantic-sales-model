@@ -1,0 +1,1 @@
+# azure-analysis-services-semantic-sales-model
