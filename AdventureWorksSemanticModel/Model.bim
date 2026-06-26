@@ -10,14 +10,17 @@
         "connectionDetails": {
           "protocol": "tds",
           "address": {
-            "server": "localhost",
+            "server": "shreyansh-aw-sql.database.windows.net",
             "database": "AdventureWorksDW2022"
           },
           "authentication": null,
           "query": null
         },
         "credential": {
-          "AuthenticationKind": "ServiceAccount",
+          "AuthenticationKind": "UsernamePassword",
+          "kind": "SQL",
+          "path": "shreyansh-aw-sql.database.windows.net;AdventureWorksDW2022",
+          "Username": "sqladmin",
           "EncryptConnection": false
         }
       }
@@ -1909,12 +1912,12 @@
           {
             "name": "Total Sales",
             "expression": " SUM(FactInternetSales[SalesAmount])",
-            "formatString": "#,0.00 \"USD\";-#,0.00 \"USD\";#,0.00 \"USD\"",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
             "displayFolder": "Sales KPIs",
             "kpi": {
               "description": "Total sales amount from internet sales.",
               "targetExpression": "'_Measures'[Sales Target]",
-              "targetFormatString": "#,0.00 \"USD\";-#,0.00 \"USD\";#,0.00 \"USD\"",
+              "targetFormatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
               "statusGraphic": "Traffic Light - Single",
               "statusExpression": [
                 "var x='_Measures'[Total Sales]/'_Measures'[_Total Sales Goal] return",
@@ -1959,7 +1962,7 @@
             "annotations": [
               {
                 "name": "Format",
-                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1116\" DisplayName=\"USD\" Symbol=\"USD\" PositivePattern=\"3\" NegativePattern=\"8\" /></Format>"
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
               }
             ]
           },
@@ -1981,12 +1984,12 @@
             "name": "Average Order Value",
             "description": "Average sales amount per order.",
             "expression": " DIVIDE([Total Sales], [Total Orders])",
-            "formatString": "#,0.00 \"USD\";-#,0.00 \"USD\";#,0.00 \"USD\"",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
             "displayFolder": "Sales KPIs",
             "annotations": [
               {
                 "name": "Format",
-                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1116\" DisplayName=\"USD\" Symbol=\"USD\" PositivePattern=\"3\" NegativePattern=\"8\" /></Format>"
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
               }
             ]
           },
