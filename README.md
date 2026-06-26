@@ -122,25 +122,25 @@ The Power BI dashboard provides:
 
 ## Executive Dashboard
 
-![Dashboard](Screenshots/SalesDashboard.png)
+![Dashboard](screenshots/SalesDashboard.png)
 
 ---
 
 ## Measures and Semantic Model
 
-![Measures](Screenshots/MeasureTable.png)
+![Measures](screenshots/MeasureTable.png)
 
 ---
 
 ## Azure SQL Database
 
-![Azure SQL](Screenshots/AzureSQL.png)
+![Azure SQL](screenshots/AzureSQL.png)
 
 ---
 
 ## Azure Analysis Services
 
-![Azure Analysis Services](Screenshots/AzureAnalysisServices.png)
+![Azure Analysis Services](screenshots/AzureAnalysisServices.png)
 
 ---
 
