@@ -2051,6 +2051,75 @@
             ],
             "formatString": "0.00",
             "displayFolder": "Business Metrics"
+          },
+          {
+            "name": "Total Cost",
+            "expression": [
+              "",
+              "SUM(FactInternetSales[TotalProductCost])"
+            ],
+            "formatString": "#,0.00 \"USD\";-#,0.00 \"USD\";#,0.00 \"USD\"",
+            "displayFolder": "Financial Metrics",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1116\" DisplayName=\"USD\" Symbol=\"USD\" PositivePattern=\"3\" NegativePattern=\"8\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Gross Profit",
+            "expression": [
+              "",
+              "[Total Sales] - [Total Cost]"
+            ],
+            "formatString": "#,0.00 \"USD\";-#,0.00 \"USD\";#,0.00 \"USD\"",
+            "displayFolder": "Financial Metrics",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1116\" DisplayName=\"USD\" Symbol=\"USD\" PositivePattern=\"3\" NegativePattern=\"8\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Gross Profit Margin %",
+            "expression": [
+              "",
+              "DIVIDE([Gross Profit], [Total Sales])"
+            ],
+            "formatString": "0.00%;-0.00%;0.00%",
+            "displayFolder": "Financial Metrics"
+          },
+          {
+            "name": "Total Freight",
+            "expression": [
+              "",
+              "SUM(FactInternetSales[Freight])"
+            ],
+            "formatString": "#,0.00 \"USD\";-#,0.00 \"USD\";#,0.00 \"USD\"",
+            "displayFolder": "Financial Metrics",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1116\" DisplayName=\"USD\" Symbol=\"USD\" PositivePattern=\"3\" NegativePattern=\"8\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Total Tax",
+            "expression": [
+              "",
+              "SUM(FactInternetSales[TaxAmt])"
+            ],
+            "formatString": "#,0.00 \"USD\";-#,0.00 \"USD\";#,0.00 \"USD\"",
+            "displayFolder": "Financial Metrics",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1116\" DisplayName=\"USD\" Symbol=\"USD\" PositivePattern=\"3\" NegativePattern=\"8\" /></Format>"
+              }
+            ]
           }
         ]
       }
@@ -2285,6 +2354,823 @@
         "fromColumn": "EmployeeKey",
         "toTable": "DimEmployee",
         "toColumn": "EmployeeKey"
+      }
+    ],
+    "perspectives": [
+      {
+        "name": "Sales",
+        "tables": [
+          {
+            "name": "_Measures",
+            "columns": [
+              {
+                "name": "hidden"
+              }
+            ],
+            "measures": [
+              {
+                "name": "Average Items per Order"
+              },
+              {
+                "name": "Average Order Value"
+              },
+              {
+                "name": "Average Selling Price"
+              },
+              {
+                "name": "Gross Profit"
+              },
+              {
+                "name": "Gross Profit Margin %"
+              },
+              {
+                "name": "Sales Target"
+              },
+              {
+                "name": "Sales YTD"
+              },
+              {
+                "name": "Total Cost"
+              },
+              {
+                "name": "Total Customers"
+              },
+              {
+                "name": "Total Freight"
+              },
+              {
+                "name": "Total Orders"
+              },
+              {
+                "name": "Total Products Sold"
+              },
+              {
+                "name": "Total Quantity"
+              },
+              {
+                "name": "Total Tax"
+              },
+              {
+                "name": "Total Sales"
+              }
+            ]
+          },
+          {
+            "name": "DimCustomer",
+            "columns": [
+              {
+                "name": "AddressLine1"
+              },
+              {
+                "name": "AddressLine2"
+              },
+              {
+                "name": "BirthDate"
+              },
+              {
+                "name": "CommuteDistance"
+              },
+              {
+                "name": "CustomerAlternateKey"
+              },
+              {
+                "name": "CustomerKey"
+              },
+              {
+                "name": "DateFirstPurchase"
+              },
+              {
+                "name": "EmailAddress"
+              },
+              {
+                "name": "EnglishEducation"
+              },
+              {
+                "name": "EnglishOccupation"
+              },
+              {
+                "name": "FirstName"
+              },
+              {
+                "name": "FrenchEducation"
+              },
+              {
+                "name": "FrenchOccupation"
+              },
+              {
+                "name": "Gender"
+              },
+              {
+                "name": "GeographyKey"
+              },
+              {
+                "name": "HouseOwnerFlag"
+              },
+              {
+                "name": "LastName"
+              },
+              {
+                "name": "MaritalStatus"
+              },
+              {
+                "name": "MiddleName"
+              },
+              {
+                "name": "NameStyle"
+              },
+              {
+                "name": "NumberCarsOwned"
+              },
+              {
+                "name": "NumberChildrenAtHome"
+              },
+              {
+                "name": "Phone"
+              },
+              {
+                "name": "SpanishEducation"
+              },
+              {
+                "name": "SpanishOccupation"
+              },
+              {
+                "name": "Suffix"
+              },
+              {
+                "name": "Title"
+              },
+              {
+                "name": "TotalChildren"
+              },
+              {
+                "name": "YearlyIncome"
+              }
+            ]
+          },
+          {
+            "name": "DimDate",
+            "columns": [
+              {
+                "name": "CalendarQuarter"
+              },
+              {
+                "name": "CalendarSemester"
+              },
+              {
+                "name": "CalendarYear"
+              },
+              {
+                "name": "DateKey"
+              },
+              {
+                "name": "DayNumberOfMonth"
+              },
+              {
+                "name": "DayNumberOfWeek"
+              },
+              {
+                "name": "DayNumberOfYear"
+              },
+              {
+                "name": "EnglishDayNameOfWeek"
+              },
+              {
+                "name": "EnglishMonthName"
+              },
+              {
+                "name": "FiscalQuarter"
+              },
+              {
+                "name": "FiscalSemester"
+              },
+              {
+                "name": "FiscalYear"
+              },
+              {
+                "name": "FrenchDayNameOfWeek"
+              },
+              {
+                "name": "FrenchMonthName"
+              },
+              {
+                "name": "FullDateAlternateKey"
+              },
+              {
+                "name": "MonthNumberOfYear"
+              },
+              {
+                "name": "SpanishDayNameOfWeek"
+              },
+              {
+                "name": "SpanishMonthName"
+              },
+              {
+                "name": "WeekNumberOfYear"
+              }
+            ],
+            "hierarchies": [
+              {
+                "name": "Calendar"
+              }
+            ]
+          },
+          {
+            "name": "DimProduct",
+            "columns": [
+              {
+                "name": "ArabicDescription"
+              },
+              {
+                "name": "ChineseDescription"
+              },
+              {
+                "name": "Class"
+              },
+              {
+                "name": "Color"
+              },
+              {
+                "name": "DaysToManufacture"
+              },
+              {
+                "name": "DealerPrice"
+              },
+              {
+                "name": "EndDate"
+              },
+              {
+                "name": "EnglishDescription"
+              },
+              {
+                "name": "EnglishProductName"
+              },
+              {
+                "name": "FinishedGoodsFlag"
+              },
+              {
+                "name": "FrenchDescription"
+              },
+              {
+                "name": "FrenchProductName"
+              },
+              {
+                "name": "GermanDescription"
+              },
+              {
+                "name": "HebrewDescription"
+              },
+              {
+                "name": "JapaneseDescription"
+              },
+              {
+                "name": "ListPrice"
+              },
+              {
+                "name": "ModelName"
+              },
+              {
+                "name": "ProductAlternateKey"
+              },
+              {
+                "name": "ProductKey"
+              },
+              {
+                "name": "ProductLine"
+              },
+              {
+                "name": "ProductSubcategoryKey"
+              },
+              {
+                "name": "ReorderPoint"
+              },
+              {
+                "name": "SafetyStockLevel"
+              },
+              {
+                "name": "Size"
+              },
+              {
+                "name": "SizeRange"
+              },
+              {
+                "name": "SizeUnitMeasureCode"
+              },
+              {
+                "name": "SpanishProductName"
+              },
+              {
+                "name": "StandardCost"
+              },
+              {
+                "name": "StartDate"
+              },
+              {
+                "name": "Status"
+              },
+              {
+                "name": "Style"
+              },
+              {
+                "name": "ThaiDescription"
+              },
+              {
+                "name": "TurkishDescription"
+              },
+              {
+                "name": "Weight"
+              },
+              {
+                "name": "WeightUnitMeasureCode"
+              }
+            ]
+          },
+          {
+            "name": "DimPromotion",
+            "columns": [
+              {
+                "name": "DiscountPct"
+              },
+              {
+                "name": "EndDate"
+              },
+              {
+                "name": "EnglishPromotionCategory"
+              },
+              {
+                "name": "EnglishPromotionName"
+              },
+              {
+                "name": "EnglishPromotionType"
+              },
+              {
+                "name": "FrenchPromotionCategory"
+              },
+              {
+                "name": "FrenchPromotionName"
+              },
+              {
+                "name": "FrenchPromotionType"
+              },
+              {
+                "name": "MaxQty"
+              },
+              {
+                "name": "MinQty"
+              },
+              {
+                "name": "PromotionAlternateKey"
+              },
+              {
+                "name": "PromotionKey"
+              },
+              {
+                "name": "SpanishPromotionCategory"
+              },
+              {
+                "name": "SpanishPromotionName"
+              },
+              {
+                "name": "SpanishPromotionType"
+              },
+              {
+                "name": "StartDate"
+              }
+            ]
+          },
+          {
+            "name": "DimSalesTerritory",
+            "columns": [
+              {
+                "name": "SalesTerritoryAlternateKey"
+              },
+              {
+                "name": "SalesTerritoryCountry"
+              },
+              {
+                "name": "SalesTerritoryGroup"
+              },
+              {
+                "name": "SalesTerritoryKey"
+              },
+              {
+                "name": "SalesTerritoryRegion"
+              }
+            ]
+          },
+          {
+            "name": "FactInternetSales",
+            "columns": [
+              {
+                "name": "CarrierTrackingNumber"
+              },
+              {
+                "name": "CurrencyKey"
+              },
+              {
+                "name": "CustomerKey"
+              },
+              {
+                "name": "CustomerPONumber"
+              },
+              {
+                "name": "DiscountAmount"
+              },
+              {
+                "name": "DueDate"
+              },
+              {
+                "name": "DueDateKey"
+              },
+              {
+                "name": "ExtendedAmount"
+              },
+              {
+                "name": "Freight"
+              },
+              {
+                "name": "OrderDate"
+              },
+              {
+                "name": "OrderDateKey"
+              },
+              {
+                "name": "OrderQuantity"
+              },
+              {
+                "name": "ProductKey"
+              },
+              {
+                "name": "ProductStandardCost"
+              },
+              {
+                "name": "PromotionKey"
+              },
+              {
+                "name": "RevisionNumber"
+              },
+              {
+                "name": "SalesAmount"
+              },
+              {
+                "name": "SalesOrderLineNumber"
+              },
+              {
+                "name": "SalesOrderNumber"
+              },
+              {
+                "name": "SalesTerritoryKey"
+              },
+              {
+                "name": "ShipDate"
+              },
+              {
+                "name": "ShipDateKey"
+              },
+              {
+                "name": "TaxAmt"
+              },
+              {
+                "name": "TotalProductCost"
+              },
+              {
+                "name": "UnitPrice"
+              },
+              {
+                "name": "UnitPriceDiscountPct"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Product",
+        "tables": [
+          {
+            "name": "_Measures",
+            "columns": [
+              {
+                "name": "hidden"
+              }
+            ],
+            "measures": [
+              {
+                "name": "Average Items per Order"
+              },
+              {
+                "name": "Average Order Value"
+              },
+              {
+                "name": "Average Selling Price"
+              },
+              {
+                "name": "Gross Profit"
+              },
+              {
+                "name": "Gross Profit Margin %"
+              },
+              {
+                "name": "Sales Target"
+              },
+              {
+                "name": "Sales YTD"
+              },
+              {
+                "name": "Total Cost"
+              },
+              {
+                "name": "Total Customers"
+              },
+              {
+                "name": "Total Freight"
+              },
+              {
+                "name": "Total Orders"
+              },
+              {
+                "name": "Total Products Sold"
+              },
+              {
+                "name": "Total Quantity"
+              },
+              {
+                "name": "Total Tax"
+              },
+              {
+                "name": "Total Sales"
+              }
+            ]
+          },
+          {
+            "name": "DimProduct",
+            "columns": [
+              {
+                "name": "ArabicDescription"
+              },
+              {
+                "name": "ChineseDescription"
+              },
+              {
+                "name": "Class"
+              },
+              {
+                "name": "Color"
+              },
+              {
+                "name": "DaysToManufacture"
+              },
+              {
+                "name": "DealerPrice"
+              },
+              {
+                "name": "EndDate"
+              },
+              {
+                "name": "EnglishDescription"
+              },
+              {
+                "name": "EnglishProductName"
+              },
+              {
+                "name": "FinishedGoodsFlag"
+              },
+              {
+                "name": "FrenchDescription"
+              },
+              {
+                "name": "FrenchProductName"
+              },
+              {
+                "name": "GermanDescription"
+              },
+              {
+                "name": "HebrewDescription"
+              },
+              {
+                "name": "JapaneseDescription"
+              },
+              {
+                "name": "ListPrice"
+              },
+              {
+                "name": "ModelName"
+              },
+              {
+                "name": "ProductAlternateKey"
+              },
+              {
+                "name": "ProductKey"
+              },
+              {
+                "name": "ProductLine"
+              },
+              {
+                "name": "ProductSubcategoryKey"
+              },
+              {
+                "name": "ReorderPoint"
+              },
+              {
+                "name": "SafetyStockLevel"
+              },
+              {
+                "name": "Size"
+              },
+              {
+                "name": "SizeRange"
+              },
+              {
+                "name": "SizeUnitMeasureCode"
+              },
+              {
+                "name": "SpanishProductName"
+              },
+              {
+                "name": "StandardCost"
+              },
+              {
+                "name": "StartDate"
+              },
+              {
+                "name": "Status"
+              },
+              {
+                "name": "Style"
+              },
+              {
+                "name": "ThaiDescription"
+              },
+              {
+                "name": "TurkishDescription"
+              },
+              {
+                "name": "Weight"
+              },
+              {
+                "name": "WeightUnitMeasureCode"
+              }
+            ]
+          },
+          {
+            "name": "DimProductSubcategory",
+            "columns": [
+              {
+                "name": "EnglishProductSubcategoryName"
+              },
+              {
+                "name": "FrenchProductSubcategoryName"
+              },
+              {
+                "name": "ProductCategoryKey"
+              },
+              {
+                "name": "ProductSubcategoryAlternateKey"
+              },
+              {
+                "name": "ProductSubcategoryKey"
+              },
+              {
+                "name": "SpanishProductSubcategoryName"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Geography",
+        "tables": [
+          {
+            "name": "_Measures",
+            "columns": [
+              {
+                "name": "hidden"
+              }
+            ],
+            "measures": [
+              {
+                "name": "Average Items per Order"
+              },
+              {
+                "name": "Average Order Value"
+              },
+              {
+                "name": "Average Selling Price"
+              },
+              {
+                "name": "Gross Profit"
+              },
+              {
+                "name": "Gross Profit Margin %"
+              },
+              {
+                "name": "Sales Target"
+              },
+              {
+                "name": "Sales YTD"
+              },
+              {
+                "name": "Total Cost"
+              },
+              {
+                "name": "Total Customers"
+              },
+              {
+                "name": "Total Freight"
+              },
+              {
+                "name": "Total Orders"
+              },
+              {
+                "name": "Total Products Sold"
+              },
+              {
+                "name": "Total Quantity"
+              },
+              {
+                "name": "Total Tax"
+              },
+              {
+                "name": "Total Sales"
+              }
+            ]
+          },
+          {
+            "name": "DimGeography",
+            "columns": [
+              {
+                "name": "City"
+              },
+              {
+                "name": "CountryRegionCode"
+              },
+              {
+                "name": "EnglishCountryRegionName"
+              },
+              {
+                "name": "FrenchCountryRegionName"
+              },
+              {
+                "name": "GeographyKey"
+              },
+              {
+                "name": "IpAddressLocator"
+              },
+              {
+                "name": "PostalCode"
+              },
+              {
+                "name": "SalesTerritoryKey"
+              },
+              {
+                "name": "SpanishCountryRegionName"
+              },
+              {
+                "name": "StateProvinceCode"
+              },
+              {
+                "name": "StateProvinceName"
+              }
+            ],
+            "hierarchies": [
+              {
+                "name": "Geography"
+              }
+            ]
+          },
+          {
+            "name": "DimSalesTerritory",
+            "columns": [
+              {
+                "name": "SalesTerritoryAlternateKey"
+              },
+              {
+                "name": "SalesTerritoryCountry"
+              },
+              {
+                "name": "SalesTerritoryGroup"
+              },
+              {
+                "name": "SalesTerritoryKey"
+              },
+              {
+                "name": "SalesTerritoryRegion"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "roles": [
+      {
+        "name": "Administrator",
+        "modelPermission": "readRefresh"
+      },
+      {
+        "name": "Analyst",
+        "modelPermission": "read"
+      },
+      {
+        "name": "Sales Manager",
+        "modelPermission": "read"
       }
     ],
     "annotations": [
