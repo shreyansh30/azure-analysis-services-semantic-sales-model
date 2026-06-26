@@ -29,11 +29,13 @@
           {
             "name": "CustomerKey",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "CustomerKey"
           },
           {
             "name": "GeographyKey",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "GeographyKey"
           },
           {
@@ -195,6 +197,7 @@
           {
             "name": "GeographyKey",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "GeographyKey"
           },
           {
@@ -240,6 +243,7 @@
           {
             "name": "SalesTerritoryKey",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "SalesTerritoryKey"
           },
           {
@@ -263,19 +267,44 @@
               ]
             }
           }
+        ],
+        "hierarchies": [
+          {
+            "name": "Geography",
+            "levels": [
+              {
+                "name": "EnglishCountryRegionName",
+                "ordinal": 0,
+                "column": "EnglishCountryRegionName"
+              },
+              {
+                "name": "StateProvinceName",
+                "ordinal": 1,
+                "column": "StateProvinceName"
+              },
+              {
+                "name": "City",
+                "ordinal": 2,
+                "column": "City"
+              }
+            ]
+          }
         ]
       },
       {
         "name": "DimDate",
+        "dataCategory": "Time",
         "columns": [
           {
             "name": "DateKey",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "DateKey"
           },
           {
             "name": "FullDateAlternateKey",
             "dataType": "dateTime",
+            "isKey": true,
             "sourceColumn": "FullDateAlternateKey"
           },
           {
@@ -379,6 +408,28 @@
               ]
             }
           }
+        ],
+        "hierarchies": [
+          {
+            "name": "Calendar",
+            "levels": [
+              {
+                "name": "CalendarYear",
+                "ordinal": 0,
+                "column": "CalendarYear"
+              },
+              {
+                "name": "EnglishMonthName",
+                "ordinal": 1,
+                "column": "EnglishMonthName"
+              },
+              {
+                "name": "FullDateAlternateKey",
+                "ordinal": 2,
+                "column": "FullDateAlternateKey"
+              }
+            ]
+          }
         ]
       },
       {
@@ -387,6 +438,7 @@
           {
             "name": "ProductKey",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "ProductKey"
           },
           {
@@ -397,6 +449,7 @@
           {
             "name": "ProductSubcategoryKey",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "ProductSubcategoryKey"
           },
           {
@@ -583,6 +636,7 @@
           {
             "name": "SalesTerritoryKey",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "SalesTerritoryKey"
           },
           {
@@ -629,41 +683,49 @@
           {
             "name": "ProductKey",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "ProductKey"
           },
           {
             "name": "OrderDateKey",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "OrderDateKey"
           },
           {
             "name": "DueDateKey",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "DueDateKey"
           },
           {
             "name": "ShipDateKey",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "ShipDateKey"
           },
           {
             "name": "CustomerKey",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "CustomerKey"
           },
           {
             "name": "PromotionKey",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "PromotionKey"
           },
           {
             "name": "CurrencyKey",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "CurrencyKey"
           },
           {
             "name": "SalesTerritoryKey",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "SalesTerritoryKey"
           },
           {
@@ -780,6 +842,7 @@
           {
             "name": "CurrencyKey",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "CurrencyKey"
           },
           {
@@ -816,6 +879,7 @@
           {
             "name": "PromotionKey",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "PromotionKey"
           },
           {
@@ -1772,6 +1836,7 @@
           {
             "name": "ProductSubcategoryKey",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "ProductSubcategoryKey"
           },
           {
@@ -1797,6 +1862,7 @@
           {
             "name": "ProductCategoryKey",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "ProductCategoryKey"
           }
         ],
@@ -1814,6 +1880,177 @@
                 "    dbo_DimProductSubcategory"
               ]
             }
+          }
+        ]
+      },
+      {
+        "name": "_Measures",
+        "columns": [
+          {
+            "type": "calculatedTableColumn",
+            "name": "hidden",
+            "dataType": "int64",
+            "isNameInferred": false,
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "sourceColumn": "[Value]"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "CalculatedTable 1",
+            "source": {
+              "type": "calculated",
+              "expression": "{ BLANK() }"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Total Sales",
+            "expression": " SUM(FactInternetSales[SalesAmount])",
+            "formatString": "#,0.00 \"USD\";-#,0.00 \"USD\";#,0.00 \"USD\"",
+            "displayFolder": "Sales KPIs",
+            "kpi": {
+              "description": "Total sales amount from internet sales.",
+              "targetExpression": "'_Measures'[Sales Target]",
+              "targetFormatString": "#,0.00 \"USD\";-#,0.00 \"USD\";#,0.00 \"USD\"",
+              "statusGraphic": "Traffic Light - Single",
+              "statusExpression": [
+                "var x='_Measures'[Total Sales]/'_Measures'[_Total Sales Goal] return",
+                "            if(ISBLANK(x),BLANK(),",
+                "                    If(x<0.4,-1,",
+                "\t                If(x<0.8,0,1)",
+                "                )",
+                "            )",
+                "            "
+              ],
+              "annotations": [
+                {
+                  "name": "GoalType",
+                  "value": "Measure"
+                },
+                {
+                  "name": "KpiStatusType",
+                  "value": "Linear"
+                },
+                {
+                  "name": "KpiThresholdType",
+                  "value": "Percentage"
+                },
+                {
+                  "name": "KpiThresholdOrdering",
+                  "value": "Ascending"
+                },
+                {
+                  "name": "KpiThresholdCount",
+                  "value": "2"
+                },
+                {
+                  "name": "KpiThreshold_0",
+                  "value": "40"
+                },
+                {
+                  "name": "KpiThreshold_1",
+                  "value": "80"
+                }
+              ]
+            },
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1116\" DisplayName=\"USD\" Symbol=\"USD\" PositivePattern=\"3\" NegativePattern=\"8\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Total Orders",
+            "description": "Number of distinct internet sales orders.",
+            "expression": " DISTINCTCOUNT(FactInternetSales[SalesOrderNumber])",
+            "formatString": "0",
+            "displayFolder": "Sales KPIs"
+          },
+          {
+            "name": "Total Quantity",
+            "description": "Total quantity of products sold.",
+            "expression": " SUM(FactInternetSales[OrderQuantity])",
+            "formatString": "0",
+            "displayFolder": "Sales KPIs"
+          },
+          {
+            "name": "Average Order Value",
+            "description": "Average sales amount per order.",
+            "expression": " DIVIDE([Total Sales], [Total Orders])",
+            "formatString": "#,0.00 \"USD\";-#,0.00 \"USD\";#,0.00 \"USD\"",
+            "displayFolder": "Sales KPIs",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1116\" DisplayName=\"USD\" Symbol=\"USD\" PositivePattern=\"3\" NegativePattern=\"8\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Sales YTD",
+            "expression": [
+              "",
+              "TOTALYTD(",
+              "    [Total Sales],",
+              "    DimDate[FullDateAlternateKey]",
+              ")"
+            ],
+            "displayFolder": "Time Intelligence"
+          },
+          {
+            "name": "Total Customers",
+            "expression": [
+              "",
+              "DISTINCTCOUNT(FactInternetSales[CustomerKey])"
+            ],
+            "formatString": "0",
+            "displayFolder": "Business Metrics"
+          },
+          {
+            "name": "Total Products Sold",
+            "expression": [
+              "",
+              "DISTINCTCOUNT(FactInternetSales[ProductKey])"
+            ],
+            "formatString": "0",
+            "displayFolder": "Business Metrics"
+          },
+          {
+            "name": "Average Selling Price",
+            "expression": [
+              "",
+              "DIVIDE([Total Sales], [Total Quantity])"
+            ],
+            "formatString": "#,0.00 \"USD\";-#,0.00 \"USD\";#,0.00 \"USD\"",
+            "displayFolder": "Business Metrics",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1116\" DisplayName=\"USD\" Symbol=\"USD\" PositivePattern=\"3\" NegativePattern=\"8\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Average Items per Order",
+            "expression": [
+              "",
+              "DIVIDE([Total Quantity], [Total Orders])"
+            ],
+            "formatString": "0.00",
+            "displayFolder": "Business Metrics"
+          },
+          {
+            "name": "Sales Target",
+            "expression": [
+              "",
+              "[Total Sales] * 0.9"
+            ],
+            "formatString": "0.00",
+            "displayFolder": "Business Metrics"
           }
         ]
       }
