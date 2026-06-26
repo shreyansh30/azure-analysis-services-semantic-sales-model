@@ -126,7 +126,7 @@ The Power BI dashboard provides:
 
 ---
 
-## Measures and Semantic Model
+## Measures
 
 ![Measures](screenshots/MeasureTable.png)
 
