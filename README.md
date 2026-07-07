@@ -122,7 +122,7 @@ The Power BI dashboard provides:
 
 ## Executive Dashboard
 
-![Dashboard](screenshots/SalesDashboard.png)
+![Dashboard](screenshots/ExecutiveDashboard.png)
 
 ---
 
